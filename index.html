@@ -2,11 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical project</title> 
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    hello world
+    <h1 class="page-title">Welcome to Health Care</h1>
+    <div class="content-row">
+        <div class="text-block">
+            <p class="intro-text"> Appointments booking.</p>
+            <form class="login-form" id="login-form">
+                <label for="email">Gmail</label>
+                <input type="email" id="email" name="email" placeholder="yourname@gmail.com" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <button type="submit">Login</button>
+                <p class="form-link">Forgot password? <a href="https://accounts.google.com/signin/recovery" target="_blank">Click here</a></p>
+            </form>
+        </div>
+        <div class="image-block">
+            <img src="medical.jpg" alt="Medical Project Image">
+        </div>
+    </div>
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="bg-video.mp4.mp4" type="video/mp4">
+    </video>
+    
+
+    
     
 </body>
 </html>
