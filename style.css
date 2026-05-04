@@ -108,6 +108,70 @@ body{
     color: #475569;
     font-weight: 600;
 }
+.appointment-panel{
+    margin-top: 28px;
+    padding: 24px;
+    border-radius: 22px;
+    background: #f8fafc;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
+}
+.appointment-panel h2{
+    margin: 0 0 18px;
+    font-size: 1.3rem;
+    color: #0f172a;
+}
+.weekday-picker{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+.weekday-btn{
+    padding: 12px 16px;
+    min-width: 62px;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    background: white;
+    color: #0f172a;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.weekday-btn:hover{
+    border-color: #2563eb;
+    transform: translateY(-1px);
+}
+.weekday-btn.selected{
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+}
+.selected-day-text{
+    margin: 0 0 14px;
+    font-size: 1rem;
+    color: #334155;
+    font-weight: 600;
+}
+.confirm-button{
+    padding: 14px 18px;
+    border: none;
+    border-radius: 14px;
+    background: #0f172a;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.confirm-button:disabled{
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+.confirmation-message{
+    margin: 16px 0 0;
+    color: #0f172a;
+    font-weight: 700;
+}
 .text-block p{
     margin: 0 0 18px;
     line-height: 1.8;

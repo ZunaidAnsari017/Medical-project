@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Next Page - Medical Project</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="content-row" style="justify-content:center;">
@@ -27,6 +28,21 @@
                 </div>
             </div>
             <p class="intro-text">Welcome to our medical portal!</p>
+            <div class="appointment-panel">
+                <h2>Choose Appointment Day</h2>
+                <div class="weekday-picker" id="weekday-picker">
+                    <button type="button" class="weekday-btn" data-day="Monday">Mon</button>
+                    <button type="button" class="weekday-btn" data-day="Tuesday">Tue</button>
+                    <button type="button" class="weekday-btn" data-day="Wednesday">Wed</button>
+                    <button type="button" class="weekday-btn" data-day="Thursday">Thu</button>
+                    <button type="button" class="weekday-btn" data-day="Friday">Fri</button>
+                    <button type="button" class="weekday-btn" data-day="Saturday">Sat</button>
+                    <button type="button" class="weekday-btn" data-day="Sunday">Sun</button>
+                </div>
+                <p class="selected-day-text" id="selected-day-text">Selected day: none</p>
+                <button class="confirm-button" id="confirm-day" disabled>Confirm appointment</button>
+                <p class="confirmation-message" id="confirmation-message"></p>
+            </div>
         </div>
     </div>
     <div class="external-date-panel">
