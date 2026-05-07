@@ -24,11 +24,52 @@ body{
     top: 80px;
     z-index: 5;
 }
+
 .left-nursing-image img {
     width: 220px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+/* Bubble effect for nursing image */
+.left-nursing-image::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid rgba(255, 255, 255, 0.95);
+    z-index: 6;
+}
+
+.left-nursing-image::after {
+    content: '🏥 Professional Nursing Care';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    color: #0f172a;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid #dbeafe;
+    z-index: 6;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.left-nursing-image:hover::after {
+    opacity: 1;
 }
 .left-middle-image {
     position: absolute;
@@ -153,6 +194,40 @@ body{
     object-fit: cover;
     border-radius: 18px;
     border: 2px solid #dbeafe;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.doctor-image:hover {
+    border-color: #2563eb;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.doctor-image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.click-indicator {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2563eb;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.doctor-image-container:hover .click-indicator {
+    opacity: 1;
 }
 .doctor-name{
     margin: 0;
@@ -335,5 +410,317 @@ body{
     .login-form input,
     .login-form button{
         padding: 13px 14px;
+    }
+}
+
+/* Slot Booking Styles */
+.slot-booking-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    position: relative;
+    z-index: 1;
+}
+
+.booking-title {
+    text-align: center;
+    color: #0f172a;
+    font-size: 1.5rem;
+    margin: 0 0 16px;
+    letter-spacing: 0.05em;
+}
+
+.appointment-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+    border-radius: 10px;
+    border-left: 3px solid #2563eb;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+}
+
+.info-card p {
+    margin: 0;
+    color: #0f172a;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.info-card strong {
+    color: #1e40af;
+}
+
+.booking-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.timing-info {
+    padding: 8px 12px;
+    background: #f0f9ff;
+    border-left: 3px solid #0284c7;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.timing-info p {
+    margin: 0;
+    color: #0c4a6e;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.date-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.date-selector label {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 1rem;
+}
+
+.date-selector input {
+    padding: 12px 14px;
+    border: 2px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.date-selector input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.time-slots-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.time-slots-container h3 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 8px;
+}
+
+.time-slot-btn {
+    padding: 10px 8px;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    color: #0f172a;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.time-slot-btn:hover {
+    border-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(37, 99, 235, 0.15);
+}
+
+.time-slot-btn.selected {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.selected-slot-text {
+    margin: 0;
+    color: #059669;
+    font-weight: 600;
+    font-size: 0.9rem;
+    min-height: 20px;
+}
+
+.book-appointment-btn {
+    padding: 14px 24px;
+    background-color: #0f172a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.02em;
+    align-self: center;
+}
+
+.book-appointment-btn:hover:not(:disabled) {
+    background-color: #144360;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.3);
+}
+
+.book-appointment-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.booking-confirmation {
+    margin: 0;
+    padding: 12px 14px;
+    background: #d1fae5;
+    border-left: 4px solid #059669;
+    border-radius: 6px;
+    color: #065f46;
+    font-weight: 600;
+    min-height: 18px;
+    display: none;
+    align-self: center;
+    text-align: center;
+}
+
+.booking-confirmation.show {
+    display: block;
+}
+
+.patient-panel {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(560px, calc(100% - 24px));
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(37, 99, 235, 0.14);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+    padding: 18px 20px;
+    z-index: 12;
+    max-height: 78vh;
+    overflow-y: auto;
+}
+
+.patient-panel h2 {
+    margin: 0 0 14px;
+    font-size: 1.35rem;
+    color: #0f172a;
+    text-align: center;
+}
+
+.patient-form {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.patient-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.patient-row-wide {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+}
+
+.patient-form label {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 0.95rem;
+}
+
+.patient-form input,
+.patient-form select,
+.patient-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.patient-form input:focus,
+.patient-form select:focus,
+.patient-form textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.patient-form textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+.patient-submit-btn {
+    padding: 14px 26px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.patient-submit-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+    .patient-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .slot-booking-section {
+        margin: 15px auto;
+        padding: 16px;
+    }
+
+    .booking-title {
+        font-size: 1.3rem;
+    }
+
+    .time-slots {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+
+    .appointment-info {
+        grid-template-columns: 1fr;
+    }
+
+    .patient-panel {
+        top: 50%;
+        padding: 20px;
     }
 }

@@ -24,7 +24,10 @@
                 <h1>Welcome to Health Care</h1>
             </div>
             <div class="doctor-card">
-                <img src="Dr Farhat Anjum.jpeg" alt="Dr. Farhat Anjum" class="doctor-image">
+                <div class="doctor-image-container">
+                    <img src="Dr Farhat Anjum.jpeg" alt="Dr. Farhat Anjum" class="doctor-image" id="dr-farhat-image">
+                    <div class="click-indicator">Click for timing</div>
+                </div>
                 <div>
                     <p class="doctor-name">Dr. Farhat Anjum</p>
                     <p class="doctor-degree">MBBS</p>
@@ -53,8 +56,107 @@
                 <button class="confirm-button" id="confirm-day" disabled>Confirm appointment</button>
                 <p class="confirmation-message" id="confirmation-message"></p>
             </div>
+
+            <!-- Slot Booking Section -->
+            <div class="slot-booking-section" id="slot-booking-section" style="display: none;">
+                <h2 class="booking-title">Slot Booking</h2>
+                
+                <div class="appointment-info">
+                    <div class="info-card">
+                        <span class="info-icon">⏱️</span>
+                        <p><strong>Appointment Duration:</strong> 30 minutes</p>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-icon">📋</span>
+                        <p><strong>Consultation Type:</strong> Online/Offline</p>
+                    </div>
+                </div>
+
+                <div class="booking-container">
+                    <div class="date-selector">
+                        <label for="appointment-date">Select Date:</label>
+                        <input type="date" id="appointment-date" required>
+                    </div>
+
+                    <div class="time-slots-container">
+                        <h3>Available Time Slots (30 mins each)</h3>
+                        <div class="timing-info">
+                            <p>Morning: 09:00 AM - 12:00 PM | Afternoon: 02:00 PM - 05:00 PM</p>
+                        </div>
+                        <div class="time-slots" id="time-slots">
+                            <button class="time-slot-btn" data-time="09:00 AM" data-end="09:30 AM">09:00 AM</button>
+                            <button class="time-slot-btn" data-time="09:30 AM" data-end="10:00 AM">09:30 AM</button>
+                            <button class="time-slot-btn" data-time="10:00 AM" data-end="10:30 AM">10:00 AM</button>
+                            <button class="time-slot-btn" data-time="10:30 AM" data-end="11:00 AM">10:30 AM</button>
+                            <button class="time-slot-btn" data-time="11:00 AM" data-end="11:30 AM">11:00 AM</button>
+                            <button class="time-slot-btn" data-time="11:30 AM" data-end="12:00 PM">11:30 AM</button>
+                            <button class="time-slot-btn" data-time="02:00 PM" data-end="02:30 PM">02:00 PM</button>
+                            <button class="time-slot-btn" data-time="02:30 PM" data-end="03:00 PM">02:30 PM</button>
+                            <button class="time-slot-btn" data-time="03:00 PM" data-end="03:30 PM">03:00 PM</button>
+                            <button class="time-slot-btn" data-time="03:30 PM" data-end="04:00 PM">03:30 PM</button>
+                            <button class="time-slot-btn" data-time="04:00 PM" data-end="04:30 PM">04:00 PM</button>
+                            <button class="time-slot-btn" data-time="04:30 PM" data-end="05:00 PM">04:30 PM</button>
+                        </div>
+                        <p id="selected-slot" class="selected-slot-text"></p>
+                    </div>
+
+                    <button class="book-appointment-btn" id="book-appointment-btn" disabled>Book Appointment</button>
+                    <p id="booking-confirmation" class="booking-confirmation"></p>
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="patient-panel" id="patient-panel">
+        <h2>Patient Details</h2>
+        <form class="patient-form" id="patient-form">
+            <div class="patient-row">
+                <label for="patient-name">Full Name</label>
+                <input type="text" id="patient-name" name="patient-name" placeholder="Enter patient name" required>
+            </div>
+            <div class="patient-row">
+                <label for="patient-age">Age</label>
+                <input type="number" id="patient-age" name="patient-age" placeholder="Age" min="1" required>
+            </div>
+            <div class="patient-row">
+                <label for="patient-gender">Gender</label>
+                <select id="patient-gender" name="patient-gender" required>
+                    <option value="">Select gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="patient-row">
+                <label for="patient-phone">Contact Number</label>
+                <input type="tel" id="patient-phone" name="patient-phone" placeholder="Mobile number" required>
+            </div>
+            <div class="patient-row">
+                <label for="patient-email">Email</label>
+                <input type="email" id="patient-email" name="patient-email" placeholder="Email address" required>
+            </div>
+            <div class="patient-row">
+                <label for="patient-address">Address</label>
+                <input type="text" id="patient-address" name="patient-address" placeholder="Home address" required>
+            </div>
+            <div class="patient-row">
+                <label for="patient-symptoms">Symptoms</label>
+                <textarea id="patient-symptoms" name="patient-symptoms" rows="3" placeholder="Describe symptoms"></textarea>
+            </div>
+            <div class="patient-row">
+                <label for="patient-history">Medical History</label>
+                <textarea id="patient-history" name="patient-history" rows="3" placeholder="Any relevant medical history"></textarea>
+            </div>
+            <div class="patient-row">
+                <label for="patient-emergency">Emergency Contact</label>
+                <input type="text" id="patient-emergency" name="patient-emergency" placeholder="Emergency contact name + phone">
+            </div>
+            <div class="patient-row patient-row-wide">
+                <button type="submit" class="patient-submit-btn">Save Patient Details</button>
+            </div>
+        </form>
+    </div>
+
     <div class="external-date-panel">
         <span class="external-date-day">4</span>
         <span class="external-date-month">May</span>
