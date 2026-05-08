@@ -158,4 +158,16 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  // Dr. Gulfam Ansari Image Click Handler
+  const drGulfamImage = document.getElementById('dr-gulfam-image');
+  if (drGulfamImage) {
+    drGulfamImage.addEventListener('click', function() {
+      const slotBookingSection = document.getElementById('slot-booking-section');
+      if (slotBookingSection) {
+        slotBookingSection.style.display = 'block';
+        slotBookingSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
 });

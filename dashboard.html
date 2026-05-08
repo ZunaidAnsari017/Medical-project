@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Dashboard - Health Care</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="png no.1.png" alt="Logo" class="sidebar-logo">
+                <h2>Health Care</h2>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-section="appointments">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Appointments</span>
+                </li>
+                <li class="nav-item" data-section="patients">
+                    <i class="fas fa-users"></i>
+                    <span>Patients</span>
+                </li>
+                <li class="nav-item" data-section="doctors">
+                    <i class="fas fa-user-md"></i>
+                    <span>Doctors</span>
+                </li>
+                <li class="nav-item" data-section="departments">
+                    <i class="fas fa-building"></i>
+                    <span>Departments</span>
+                </li>
+                <li class="nav-item" data-section="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </li>
+                <li class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin</span>
+                </div>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 id="page-title">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="header-notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="header-profile">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-wrapper">
+                <!-- Dashboard Overview -->
+                <section id="dashboard-section" class="content-section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Today's Appointments</h3>
+                                <p class="stat-number">24</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total Patients</h3>
+                                <p class="stat-number">1,247</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Active Doctors</h3>
+                                <p class="stat-number">12</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Departments</h3>
+                                <p class="stat-number">8</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-charts">
+                        <div class="chart-container">
+                            <h3>Recent Appointments</h3>
+                            <div class="appointment-list">
+                                <div class="appointment-item">
+                                    <div class="appointment-info">
+                                        <h4>John Doe</h4>
+                                        <p>Dr. Farhat Anjum - Cardiology</p>
+                                        <span class="appointment-time">10:00 AM</span>
+                                    </div>
+                                    <span class="appointment-status confirmed">Confirmed</span>
+                                </div>
+                                <div class="appointment-item">
+                                    <div class="appointment-info">
+                                        <h4>Jane Smith</h4>
+                                        <p>Dr. Gulfam Ansari - General Medicine</p>
+                                        <span class="appointment-time">11:30 AM</span>
+                                    </div>
+                                    <span class="appointment-status pending">Pending</span>
+                                </div>
+                                <div class="appointment-item">
+                                    <div class="appointment-info">
+                                        <h4>Mike Johnson</h4>
+                                        <p>Dr. Farhat Anjum - Cardiology</p>
+                                        <span class="appointment-time">2:00 PM</span>
+                                    </div>
+                                    <span class="appointment-status confirmed">Confirmed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Appointments Section -->
+                <section id="appointments-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Appointments Management</h2>
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            New Appointment
+                        </button>
+                    </div>
+
+                    <div class="filters">
+                        <select class="filter-select">
+                            <option>All Appointments</option>
+                            <option>Today's Appointments</option>
+                            <option>Pending</option>
+                            <option>Confirmed</option>
+                            <option>Completed</option>
+                        </select>
+                        <input type="date" class="filter-date">
+                    </div>
+
+                    <div class="appointments-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Patient Name</th>
+                                    <th>Doctor</th>
+                                    <th>Date & Time</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>Dr. Farhat Anjum</td>
+                                    <td>2026-05-10 10:00 AM</td>
+                                    <td><span class="status confirmed">Confirmed</span></td>
+                                    <td>
+                                        <button class="btn-action edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action cancel"><i class="fas fa-times"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Smith</td>
+                                    <td>Dr. Gulfam Ansari</td>
+                                    <td>2026-05-10 11:30 AM</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                    <td>
+                                        <button class="btn-action edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action cancel"><i class="fas fa-times"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Patients Section -->
+                <section id="patients-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Patients Management</h2>
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add Patient
+                        </button>
+                    </div>
+
+                    <div class="patients-grid">
+                        <div class="patient-card">
+                            <div class="patient-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="patient-info">
+                                <h4>John Doe</h4>
+                                <p>Age: 35</p>
+                                <p>Phone: +91 9876543210</p>
+                                <p>Last Visit: 2026-05-08</p>
+                            </div>
+                            <div class="patient-actions">
+                                <button class="btn-action view"><i class="fas fa-eye"></i></button>
+                                <button class="btn-action edit"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="patient-card">
+                            <div class="patient-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="patient-info">
+                                <h4>Jane Smith</h4>
+                                <p>Age: 28</p>
+                                <p>Phone: +91 9876543211</p>
+                                <p>Last Visit: 2026-05-07</p>
+                            </div>
+                            <div class="patient-actions">
+                                <button class="btn-action view"><i class="fas fa-eye"></i></button>
+                                <button class="btn-action edit"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Doctors Section -->
+                <section id="doctors-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Doctors Management</h2>
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add Doctor
+                        </button>
+                    </div>
+
+                    <div class="doctors-grid">
+                        <div class="doctor-card">
+                            <img src="Dr Farhat Anjum.jpeg" alt="Dr. Farhat Anjum" class="doctor-img">
+                            <div class="doctor-info">
+                                <h4>Dr. Farhat Anjum</h4>
+                                <p>MBBS</p>
+                                <p>Cardiology</p>
+                                <p>Experience: 15 years</p>
+                            </div>
+                            <div class="doctor-actions">
+                                <button class="btn-action view"><i class="fas fa-eye"></i></button>
+                                <button class="btn-action edit"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="doctor-card">
+                            <img src="Dr Gulfam Ansari.jpeg" alt="Dr. Gulfam Ansari" class="doctor-img">
+                            <div class="doctor-info">
+                                <h4>Dr. Gulfam Ansari</h4>
+                                <p>B Pharma</p>
+                                <p>General Medicine</p>
+                                <p>Experience: 8 years</p>
+                            </div>
+                            <div class="doctor-actions">
+                                <button class="btn-action view"><i class="fas fa-eye"></i></button>
+                                <button class="btn-action edit"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Departments Section -->
+                <section id="departments-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Departments</h2>
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add Department
+                        </button>
+                    </div>
+
+                    <div class="departments-grid">
+                        <div class="department-card">
+                            <div class="department-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h4>Cardiology</h4>
+                            <p>Heart and cardiovascular diseases</p>
+                            <div class="department-stats">
+                                <span>5 Doctors</span>
+                                <span>120 Patients</span>
+                            </div>
+                        </div>
+
+                        <div class="department-card">
+                            <div class="department-icon">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <h4>General Medicine</h4>
+                            <p>Primary healthcare and general practice</p>
+                            <div class="department-stats">
+                                <span>3 Doctors</span>
+                                <span>85 Patients</span>
+                            </div>
+                        </div>
+
+                        <div class="department-card">
+                            <div class="department-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4>Neurology</h4>
+                            <p>Brain and nervous system disorders</p>
+                            <div class="department-stats">
+                                <span>2 Doctors</span>
+                                <span>45 Patients</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reports Section -->
+                <section id="reports-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Reports & Analytics</h2>
+                    </div>
+
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <h4>Monthly Appointments</h4>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Chart will be displayed here</p>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <h4>Patient Statistics</h4>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-pie"></i>
+                                <p>Chart will be displayed here</p>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <h4>Revenue Report</h4>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-bar"></i>
+                                <p>Chart will be displayed here</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Settings</h2>
+                    </div>
+
+                    <div class="settings-container">
+                        <div class="settings-section">
+                            <h3>General Settings</h3>
+                            <div class="setting-item">
+                                <label>Hospital Name</label>
+                                <input type="text" value="Health Care Hospital">
+                            </div>
+                            <div class="setting-item">
+                                <label>Contact Number</label>
+                                <input type="text" value="79037944484">
+                            </div>
+                            <div class="setting-item">
+                                <label>Email</label>
+                                <input type="email" value="info@healthcare.com">
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3>Appointment Settings</h3>
+                            <div class="setting-item">
+                                <label>Default Duration (minutes)</label>
+                                <input type="number" value="30">
+                            </div>
+                            <div class="setting-item">
+                                <label>Working Hours</label>
+                                <input type="text" value="09:00 AM - 05:00 PM">
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3>System Settings</h3>
+                            <div class="setting-item">
+                                <label>Language</label>
+                                <select>
+                                    <option>English</option>
+                                    <option>Hindi</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label>Timezone</label>
+                                <select>
+                                    <option>IST (UTC+5:30)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="btn-primary save-settings">Save Settings</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
